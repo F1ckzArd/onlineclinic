@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #f8f9fa;
+            padding: 1rem;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #0056b3;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
+<body>
+    <nav>
+        <a href="/doctors">Doctors</a>
+        <a href="/procedures">Procedures</a>
+        <a href="/appointments">Appointments</a>
+    </nav>
+
+    <div class="content">
+        <h1>Welcome to the Online Clinic!</h1>
+        <p>Your health, our priority. Navigate through the options above to manage doctors, procedures, and appointments.</p>
+    </div>
+</body>
+
+{% endblock %}
+

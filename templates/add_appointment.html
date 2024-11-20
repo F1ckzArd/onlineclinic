@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Appointment</title>
+</head>
+<body>
+    <h1>Add New Appointment</h1>
+    <form action="/add_appointment" method="POST">
+        <label for="procedure_id">Procedure:</label>
+        <select id="procedure_id" name="procedure_id" required>
+            {% for procedure in procedures %}
+                <option value="{{ procedure.id }}">{{ procedure.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="patient_name">Patient Name:</label>
+        <input type="text" id="patient_name" name="patient_name" required>
+        <br>
+        <label for="appointment_time">Time:</label>
+        <input type="datetime-local" id="appointment_time" name="appointment_time" required>
+        <br>
+        <button type="submit">Add Appointment</button>
+    </form>
+</body>
+</html>

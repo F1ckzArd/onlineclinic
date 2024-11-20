@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments</title>
+</head>
+<body>
+    <h1>Appointments List</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Procedure</th>
+                <th>Patient Name</th>
+                <th>Appointment Time</th>
+                <th>Doctor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.procedure.name }}</td>  
+                    <td>{{ appointment.patient_name }}</td>   
+                    <td>{{ appointment.appointment_time.strftime('%Y-%m-%d %H:%M') }}</td> 
+                    <td>{{ appointment.procedure.doctor.name }}</td>  
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/add_appointment">Add New Appointment</a> 
+</body>
+</html>
+
+

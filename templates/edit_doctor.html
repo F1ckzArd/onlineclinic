@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Doctor</title>
+</head>
+<body>
+    <h1>Edit Doctor</h1>
+    <form action="/doctors/{{ doctor.id }}" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ doctor.name }}" required>
+        <br>
+        <label for="specialization">Specialization:</label>
+        <input type="text" id="specialization" name="specialization" value="{{ doctor.specialization }}" required>
+        <br>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

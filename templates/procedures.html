@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedures</title>
+</head>
+<body>
+    <h1>Procedures</h1>
+    <ul>
+        {% for procedure in procedures %}
+        <li>{{ procedure.name }} - ${{ procedure.price }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add Procedure</h2>
+    <form action="/procedures" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" required>
+        <label for="doctor_id">Doctor ID:</label>
+        <input type="number" name="doctor_id" id="doctor_id" required>
+        <button type="submit">Add Procedure</button>
+    </form>
+</body>
+</html>
+

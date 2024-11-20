@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Procedure</title>
+</head>
+<body>
+    <h1>Edit Procedure</h1>
+    <form action="/procedures/{{ procedure.id }}" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ procedure.name }}" required>
+        <br>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" value="{{ procedure.price }}" required>
+        <br>
+        <label for="doctor_id">Doctor:</label>
+        <select id="doctor_id" name="doctor_id" required>
+            {% for doctor in doctors %}
+                <option value="{{ doctor.id }}" {% if doctor.id == procedure.doctor_id %}selected{% endif %}>
+                    {{ doctor.name }}
+                </option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

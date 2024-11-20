@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctors</title>
+</head>
+<body>
+    <h1>Doctors List</h1>
+    <ul>
+        {% for doctor in doctors %}
+            <li>
+                {{ doctor.name }} - {{ doctor.specialization }}
+                <a href="/doctors/{{ doctor.id }}/edit">Edit</a>
+                <form action="/doctors/{{ doctor.id }}" method="POST" style="display: inline;">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/doctors/add">Add Doctor</a>
+</body>
+</html>
