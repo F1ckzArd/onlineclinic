@@ -1,1 +1,1 @@
-web: gunicorn ARS.wsgi:app
+web: gunicorn onlineclinic.wsgi:app
