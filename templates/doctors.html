@@ -2,22 +2,108 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Doctors</title>
+    <title>Doctors List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding: 20px;
+            background-color: #0056b3
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        li {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        a:hover {
+            color: #45a049;
+        }
+
+        button {
+            padding: 5px 10px;
+            color: white;
+            background-color: #f44336;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #d32f2f;
+        }
+
+        .add-doctor-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .add-doctor-btn:hover {
+            background-color: #45a049;
+        }
+
+        form {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <h1>Doctors List</h1>
     <ul>
         {% for doctor in doctors %}
             <li>
-                {{ doctor.name }} - {{ doctor.specialization }}
-                <a href="/doctors/{{ doctor.id }}/edit">Edit</a>
-                <form action="/doctors/{{ doctor.id }}" method="POST" style="display: inline;">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit">Delete</button>
-                </form>
+                <span>{{ doctor.name }} - {{ doctor.specialization }}</span>
+                {% if is_admin %}
+                    <div>
+                        <a href="/doctors/{{ doctor.id }}/edit">Edit</a>
+                        <form action="/doctors/{{ doctor.id }}/delete" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>
-    <a href="/doctors/add">Add Doctor</a>
+
+    <a href="/doctors/add" class="add-doctor-btn" style="background-color: #0056b3">Add Doctor</a>
 </body>
 </html>
