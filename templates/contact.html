@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    .container {
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #5a5a5a;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1rem;
+        color: #777;
+    }
+
+    .row {
+        margin-top: 30px;
+    }
+
+    .col-md-6 {
+        margin-bottom: 30px;
+    }
+
+    .col-md-6 h3 {
+        font-size: 1.2rem;
+        color: #5a5a5a;
+        margin-bottom: 10px;
+    }
+
+    .map iframe {
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .map iframe:hover {
+        transform: scale(1.05);
+    }
+
+</style>
+
+<div class="container mt-5">
+    <h1 class="text-center">Contact Us</h1>
+    <p class="text-center">Communicate with us</p>
+    <div class="row mt-4">
+        <div class="col-md-6 text-center">
+            <h3>Address</h3>
+            <p>Aitu Astana</p>
+        </div>
+        <div class="col-md-6 text-center">
+            <h3>Call centre</h3>
+            <p>+7 777 777 777</p>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <h3>Working Hours</h3>
+        <p>Monday to Friday: 24 / 7</p>
+        <p>Saturday: 24 / 7</p>
+        <p>Sunday: Closed</p>
+    </div>
+    <div class="map" style="display:flex; justify-content:center;">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Af92bfad55f2a5f30840be3f721993bb5214813489129f7f11707bd91a7f3ff1a&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+    </div>
+</div>
+{% endblock %}
+
