@@ -2,7 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Appointments List</h1>
@@ -21,7 +76,7 @@
                 <tr>
                     <td>{{ appointment.procedure.name }}</td>  
                     <td>{{ appointment.patient_name }}</td>   
-                    <td>{{ appointment.appointment_time.strftime('%Y-%m-%d %H:%M') }}</td> 
+                    <td>{{ appointment.appointment_time.strftime('%Y-%m-%d %H:%M') }}</td>  
                     <td>{{ appointment.procedure.doctor.name }}</td>  
                 </tr>
             {% endfor %}
@@ -29,7 +84,7 @@
     </table>
 
     <br>
-    <a href="/add_appointment">Add New Appointment</a> 
+    <a href="/add_appointment">Add New Appointment</a>  
 </body>
 </html>
 
