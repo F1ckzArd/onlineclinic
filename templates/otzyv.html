@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Testimonials
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    .totzyv-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #5a5a5a;
+    }
+
+    .totzyv-subtitle {
+        font-size: 1.2rem;
+        color: #777;
+    }
+
+    .otzyv-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: 100%;
+    }
+
+    .otzyv-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .otzyv-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .otzyv-text {
+        font-size: 1rem;
+        color: #555;
+        font-style: italic;
+        margin-bottom: 15px;
+    }
+
+    .otzyv-author {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+        margin-top: auto;
+    }
+
+</style>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4 totzyv-title">What Our Patients Say</h1>
+    <p class="text-center text-muted mb-5 totzyv-subtitle">We value the feedback of every patient we serve.</p>
+    
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="otzyv-card">
+                <div class="otzyv-content">
+                    <p class="otzyv-text">"This clinic changed my life! The staff is so professional."</p>
+                    <h4 class="otzyv-author">- Alshynov Shynggys</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="otzyv-card">
+                <div class="otzyv-content">
+                    <p class="otzyv-text">"The doctors are amazing, and the environment is so welcoming. Highly recommend!"</p>
+                    <h4 class="otzyv-author">- Alshynov Shynggys</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="otzyv-card">
+                <div class="otzyv-content">
+                    <p class="otzyv-text">"Excellent service! I always feel confident in the care I receive here."</p>
+                    <h4 class="otzyv-author">- Travis Scot</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
