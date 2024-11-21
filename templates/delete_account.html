@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Удаление аккаунта</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #333; 
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff; /* текст белый */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1); 
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff; 
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #ccc; 
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: #555; 
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background: #777; 
+            transform: translateY(-5px);
+        }
+
+        .btn-danger {
+            background: #444;
+        }
+
+        .btn-danger:hover {
+            background: #333; 
+        }
+
+        .btn-secondary {
+            background: #666; 
+        }
+
+        .btn-secondary:hover {
+            background: #555; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>хотите удалить аккаунт?</h1>
+        <p>ачотак</p>
+
+        <form method="POST">
+            <button type="submit" class="btn btn-danger">Удалить аккаунт</button>
+        </form>
+
+        <a href="{{ url_for('profile') }}" class="btn btn-secondary">Отменить</a>
+    </div>
+</body>
+</html>
