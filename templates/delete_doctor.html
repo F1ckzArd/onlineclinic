@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Doctor</title>
+</head>
+<body>
+    <h1>Delete Doctor</h1>
+    <p>Are you sure you want to delete the doctor <strong>{{ doctor.name }}</strong>?</p>
+    <form action="/doctors/{{ doctor.id }}/delete" method="POST">
+        <button type="submit">Yes</button>
+    </form>
+    <a href="/doctors">Cancel</a>
+</body>
+</html>
