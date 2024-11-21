@@ -6,21 +6,28 @@
 </head>
 <body>
     <h1>Add New Procedure</h1>
-    <form action="/procedures" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br>
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" step="0.01" required>
-        <br>
-        <label for="doctor_id">Doctor:</label>
-        <select id="doctor_id" name="doctor_id" required>
-            {% for doctor in doctors %}
-                <option value="{{ doctor.id }}">{{ doctor.name }}</option>
-            {% endfor %}
-        </select>
-        <br>
-        <button type="submit">Add Procedure</button>
-    </form>
+    
+    {% if session['is_admin'] %}
+        <form action="/procedures/add" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" required>
+            <br>
+            <label for="doctor_id">Doctor:</label>
+            <select id="doctor_id" name="doctor_id" required>
+                {% for doctor in doctors %}
+                    <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <button type="submit">Add Procedure</button>
+        </form>
+    {% else %}
+        <p>You do not have permission to add procedures.</p>
+    {% endif %}
 </body>
 </html>
+
+
