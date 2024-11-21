@@ -2,25 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .form-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-container a {
+            display: inline-block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+
+        .form-container a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Add New Appointment</h1>
-    <form action="/add_appointment" method="POST">
-        <label for="procedure_id">Procedure:</label>
-        <select id="procedure_id" name="procedure_id" required>
-            {% for procedure in procedures %}
-                <option value="{{ procedure.id }}">{{ procedure.name }}</option>
-            {% endfor %}
-        </select>
-        <br>
-        <label for="patient_name">Patient Name:</label>
-        <input type="text" id="patient_name" name="patient_name" required>
-        <br>
-        <label for="appointment_time">Time:</label>
-        <input type="datetime-local" id="appointment_time" name="appointment_time" required>
-        <br>
-        <button type="submit">Add Appointment</button>
-    </form>
+
+    <div class="form-container">
+        <h1>Add New Appointment</h1>
+        <form action="/add_appointment" method="POST">
+            <label for="procedure_id">Procedure:</label>
+            <select id="procedure_id" name="procedure_id" required>
+                {% for procedure in procedures %}
+                    <option value="{{ procedure.id }}">{{ procedure.name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="patient_name">Patient Name:</label>
+            <input type="text" id="patient_name" name="patient_name" required>
+
+            <label for="appointment_time">Time:</label>
+            <input type="datetime-local" id="appointment_time" name="appointment_time" required>
+
+            <button type="submit">Add Appointment</button>
+        </form>
+
+        <a href="/appointments">Back to Appointments List</a>
+    </div>
+
 </body>
 </html>
+
+
