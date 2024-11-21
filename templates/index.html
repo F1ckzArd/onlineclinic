@@ -1,49 +1,102 @@
 {% extends 'base.html' %}
+
 {% block title %}
 Главная страница
 {% endblock %}
 
 {% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+    }
 
-   <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        nav {
-            background-color: #f8f9fa;
-            padding: 1rem;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #0056b3;
-        }
-        h1 {
-            margin-top: 20px;
-        }
-        .content {
-            padding: 20px;
-        }
-    </style>
-<body>
+    nav {
+        background-color: #007bff;
+        padding: 1rem;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 0 20px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    nav a:hover {
+        color: #ffcc00;
+    }
+
+    h1 {
+        margin-top: 40px;
+        font-size: 2.5rem;
+        color: #333;
+    }
+
+    .content {
+        padding: 40px 20px;
+        text-align: center;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        width: 80%;
+        max-width: 1200px;
+    }
+
+    .content p {
+        font-size: 1.2rem;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .content a {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1.1rem;
+    }
+
+    .content a:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div>
     <nav>
-        <a href="/doctors">Doctors</a>
-        <a href="/procedures">Procedures</a>
-        <a href="/appointments">Appointments</a>
+        {% if session.get('user_id') %}
+            <a href="/doctors">Doctors</a>
+            <a href="/procedures">Procedures</a>
+            <a href="/appointments">Appointments</a>
+            <a href="/about" style=" ">About</a>
+            <a href="/contact">Contact Us</a>
+            <a href="/otzyv">otzyv</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
     </nav>
 
     <div class="content">
         <h1>Welcome to the Online Clinic!</h1>
         <p>Your health, our priority. Navigate through the options above to manage doctors, procedures, and appointments.</p>
+        {% if not session.get('user_id') %}
+            <a href="/login">Log in to manage your appointments</a>
+        {% endif %}
     </div>
-</body>
+</div>
 
 {% endblock %}
+
 
